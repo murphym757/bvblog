@@ -12,10 +12,5 @@
     "body-parser": "^1.17.2",
     "express": "^4.15.4",
     "pug": "^2.0.0-rc.4"
-  },
-  "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-customize-bootstrap": "0.0.6",
-    "gulp-sass": "^3.1.0"
   }
 }
