@@ -1,0 +1,165 @@
+//Fonts
+@font-face {
+  font-family: 'CaviarDreams';
+  src: url('/assets/fonts/CaviarDreams_Bold.ttf');
+  src: url('/assets/fonts/CaviarDreams_Bold.ttf?iefix') format('truetype');
+	font-weight: bold;
+ 	font-style: normal;
+}
+
+//Bayside Vinyl Color Scheme
+$mintGreen     : #b8dacc;
+$milkChocolate : #6d5e4c;
+$frostyWhite   : #fdfdfd;
+$fontColor     : black;
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+body {
+display: table;
+width: 100%;
+height: auto;
+text-align: center;
+background: url('/assets/images/Bayside.jpg') no-repeat bottom center scroll;
+background-color: $mintGreen;
+background-blend-mode: multiply;
+background-position: center center;
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: cover;
+}
+
+h1 {
+  color: $fontColor;
+}
+
+
+.card {
+  background-color: white;
+  opacity: 0.8;
+  height: 100%;
+}
+
+//includes (partials)
+.header {
+
+}
+
+.footer {
+
+}
+
+//content (what appears between header & footer)
+.page-content {
+
+}
+
+
+.page-content,
+.footer {
+  display: table;
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
+/*-----------------*/
+
+//Bootstrap Navbar
+$bgDefault     : $milkChocolate;
+$bgHighlight   : $milkChocolate;
+$colDefault    : $mintGreen;
+$colHighlight  : $frostyWhite;
+$dropDown      : true;
+.navbar {
+	font-family: CaviarDreams;
+  background-color: $bgDefault;
+  opacity: 0.8;
+  .navbar-brand {
+    color: $colDefault;
+    &:hover, &:focus {
+      color: $colHighlight; }}
+  .navbar-text {
+    color: $colDefault; }
+  .navbar-nav {
+    .nav-link {
+      color: $colDefault;
+      border-radius: .25rem;
+      margin: 0 0.25em;
+      &:not(.disabled) {
+        &:hover, &:focus {
+          color: $colHighlight; }}}
+    @if ($dropDown) {
+      .dropdown-menu {
+        background-color: $bgDefault;
+        border-color: $bgHighlight;
+        .dropdown-item {
+          color: $colDefault;
+          &:hover, &:focus, &.active {
+            color: $colHighlight;
+            background-color: $bgHighlight; }}
+        .dropdown-divider {
+          border-top-color: $bgHighlight; }}}
+    .nav-item.active, .nav-item.show {
+      .nav-link, .nav-link:hover, .nav-link:focus {
+        color: $colHighlight;
+        background-color: $bgHighlight; }}}
+  .navbar-toggle {
+    border-color: $bgHighlight;
+    &:hover, &:focus {
+      background-color: $bgHighlight; }
+    .navbar-toggler-icon {
+      color: $colDefault; }}
+  .navbar-collapse,
+  .navbar-form {
+    border-color: $colDefault; }
+  .navbar-link {
+    color: $colDefault;
+    &:hover {
+      color: $colHighlight; }}}
+@media (max-width: 575px) {
+  .navbar-expend-sm .navbar-nav .show .dropdown-menu {
+    .dropdown-item {
+      color: $colDefault;
+      &:hover, &:focus {
+        color: $colHighlight; }}
+    .dropdown-item.active {
+      color: $colHighlight;
+      background-color: $bgHighlight; }}}
+@media (max-width: 767px) {
+  .navbar-expend-md .navbar-nav .show .dropdown-menu {
+    .dropdown-item {
+      color: $colDefault;
+      &:hover, &:focus {
+        color: $colHighlight; }}
+    .dropdown-item.active {
+      color: $colHighlight;
+      background-color: $bgHighlight; }}}
+@media (max-width: 991px) {
+  .navbar-expend-lg .navbar-nav .show .dropdown-menu {
+    .dropdown-item {
+      color: $colDefault;
+      &:hover, &:focus {
+        color: $colHighlight; }}
+    .dropdown-item.active {
+      color: $colHighlight;
+      background-color: $bgHighlight; }}}
+@media (max-width: 1199px) {
+  .navbar-expend-xl .navbar-nav .show .dropdown-menu {
+    .dropdown-item {
+      color: $colDefault;
+      &:hover, &:focus {
+        color: $colHighlight; }}
+    .dropdown-item.active {
+      color: $colHighlight;
+      background-color: $bgHighlight; }}}
+.navbar-expend .navbar-nav .show .dropdown-menu {
+  .dropdown-item {
+    color: $colDefault;
+    &:hover, &:focus {
+      color: $colHighlight; }}
+  .dropdown-item.active {
+    color: $colHighlight;
+    background-color: $bgHighlight; }}
