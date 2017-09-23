@@ -74,6 +74,9 @@ app.get('/show', (req, res) => {
     res.render('show');
 });
 
+// set the port of our application
+// process.env.PORT lets the port be set by Heroku
+var port = process.env.PORT || 8080;
 
 //Localhost server
 app.listen(3000, () => {
