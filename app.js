@@ -77,6 +77,6 @@ app.get('/show', (req, res) => {
 // process.env.PORT lets the port be set by Heroku
 // use port 3000 unless there exists a preconfigured port
 //Localhost server
-app.listen(process.env.port || 3000, () => {
+app.listen(process.env.PORT || 3000, () => {
     console.log('Server started on Port 3000')
 });
