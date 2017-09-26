@@ -1,10 +1,13 @@
+//- homepage.pug
 extends layout
 
 block content
+  //- First Section (Blog Introduction)
   div(class="homepage card")
       h1(class="bayside-header display-4 pt-4") Welcome to Bayside Blog
       p(class="bayside-header-explanation p-4 lead") The place to post great music (and artist) recommendations regardless of genre or release date. This app was created with Sail.js (Node.js).
       br
+      //- First Section (Blog Launch)
       div(class="main container")
         div(class="row featurette")
           div(class="col-md-6")
@@ -15,22 +18,20 @@ block content
              a(href="/posts/list")
               img(class="featurette-image bvbloglogo img-responsive center-block animated pulse" src="/assets/images/BV logo-2.0.svg" height="200" width="200")
         hr(class="featurette-divider")
+      //- Second Section (Other Projects)
       h2(class="bayside-header display-5 pt-4") Explore Bayside Vinyl
       p(class="bayside-header-explanation-2 p-4 lead") Each of the web apps below were created with Ruby on Rails. The pulsating logos serves as link to each respective app.
         br
+        //- Second Section (BV Collection)
         div(class="row featurette p-4")
           div(class="col-sm-4")
-            a(href="http://baysidevinyl.herokuapp.com/tracks#index" target="_blank")
-              img(class="featurette-image bvcollection img-responsive center-block animated pulse" src="/assets/images/BV Collection.svg" height="200" width="200")
-            h2(class="bayside-header display-5 pt-4 lead") Bayside Collection
+            include webapps/bvcollection.pug
           br
+          //- Second Section (BV Theme Generator)
           div(class="col-sm-4")
-            a(href="http://bvthemegenerator.herokuapp.com/" target="_blank")
-              img(class="featurette-image bvthemegenerator img-responsive center-block animated pulse" src="/assets/images/BV logo-rain.svg" height="115" width="115")
-            h2(class="bayside-header display-5 pt-4 lead") BV Theme Generator
+            include webapps/bvthemegenerator.pug
           br
+          //- Second Section (Official Bayside Vinyl Website)
           div(class="col-sm-4")
-            a(href="http://baysidevinyl.herokuapp.com/" target="_blank")
-              img(class="featurette-image bvofficial img-responsive center-block animated pulse" src="/assets/images/Bayside Logo.svg" height="115" width="115")
-            h2(class="bayside-header display-5 pt-4 lead") Bayside Vinyl
+            include webapps/bvofficial.pug
           br
