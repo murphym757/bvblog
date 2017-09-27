@@ -2,6 +2,7 @@
 // Load Dependencies
 const express = require('express');
 const bodyParser = require('body-parser');
+const favicon = require('serve-favicon');
 const path = require('path');
 
 const app = express();
@@ -52,7 +53,6 @@ var users = [
     email: 'vicelandKM@bronx.com'
   }
 ]
-
 //Route For App Landing Page (Homepage.ejs)
 app.get('/', (req, res) => {
   res.render('homepage');
