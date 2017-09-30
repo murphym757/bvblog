@@ -19,8 +19,7 @@ app.use(logger);
 app.set('view engine', 'pug');
 
 // Paths
-app.set('views', path.join(__dirname, '/app', 'views'));
-
+app.set('views', path.join(__dirname, '/app', '/views'));
 
 //Static Paths
 app.use(express.static(path.join(__dirname + '/assets')));
@@ -55,7 +54,7 @@ var users = [
 ]
 //Route For App Landing Page (Homepage.ejs)
 app.get('/', (req, res) => {
-  res.render('homepage');
+  res.render('index');
 });
 //Route For Addding A Post (add.ejs)
 app.get('/add', (req, res) => {
