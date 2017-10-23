@@ -14,7 +14,14 @@ route.get('/', (req, res, next) => {
 //Route Showing All Posts (list.ejs)
 route.route('/posts')
 .get(postController.list_all_posts);
+
+//Route allowing the user to create a post (add.pug)
+route.route('/add')
+    .get(postController.create_new_post);
+
 module.exports = route;
+
+
 
 
 /* THESE ROUTES ARE TIED EXCLUSIVELY TO CONTROLLERS

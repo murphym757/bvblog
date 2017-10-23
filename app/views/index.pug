@@ -2,6 +2,7 @@
 extends layout
 
 block content
+  -let source = "https://www.youtube.com/embed?v=9aVJOg2EB9I"
   //- First Section (Blog Launch)
   div(class="main container")
     div(class="row featurette")
@@ -12,6 +13,7 @@ block content
       div(class="col-md-6")
          a(href="/posts")
           img(class="featurette-image bvbloglogo img-responsive center-block animated pulse" src="/assets/images/BV logo-2.0.svg" height="200" width="200")
+    iframe(width="100%" height="450" scrolling="no" frameborder="no" src=source)
     hr(class="featurette-divider")
   //- Second Section (Other Projects)
   h2(class="bayside-header display-5 pt-4") Explore Bayside Vinyl

@@ -2,4 +2,13 @@
 extends layout
 
 block content
-  h1(class="page-content") Got it together
+  div(class="post container")
+    h2(class="lead post-title display-4 pb-4") Add Post
+    div(class="form-group")
+      label(for="title-heading") Title
+      input(type="text" name="title" placeholder="Post Title" class="form-control")
+    div(class="form-group pt-2 pb-3")
+      label(for="body-heading") Body
+      input(type="text" name="title" placeholder="Post Title" class="form-control")
+    div(class="submit-button pb-3")
+      input(type="submit" value="Submit" href="/posts" class="btn btn-primary")

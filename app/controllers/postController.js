@@ -5,8 +5,11 @@ exports.list_all_posts = (req, res) => {
     if (err) {
       res.send(500, {error: 'Database Error'});
     }
-    res.view('posts', {posts: posts});
+    res.render('posts', {posts: posts});
   });
+},
+exports.create_new_post = (req, res) => {
+  res.render('add');
 };
 /*
   exports.list_all_posts = (req, res) => {
