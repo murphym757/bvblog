@@ -13,7 +13,7 @@ const express = require('express'),
 
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/Postsdb', { useMongoClient: true });
+mongoose.connect('mongodb://localhost/Postsdb');
 
 /*
 const logger = function(req, res, next){
