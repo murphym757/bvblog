@@ -1,20 +1,20 @@
 // app.js
 // Load Dependencies
 const express = require('express'),
-      bodyParser = require('body-parser'),
+      app = express(),
       favicon = require('serve-favicon'),
       path = require('path'),
-      posts = require('./app/models/postModel.js'),
+      Post = require('./app/models/postModel.js'),
       routes = require('./app/routes/routes.js'),
-      app = express(),
       mongoose = require('mongoose'),
-      port = process.env.PORT || 3000;
+      port = process.env.PORT || 3000,
+      bodyParser = require('body-parser');
 
-/*
+
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/Postsdb');
-*/
+
 /*
 const logger = function(req, res, next){
   console.log('Logging...');
@@ -23,6 +23,10 @@ const logger = function(req, res, next){
 
 app.use(logger);
 */
+
+// Body Parser Middleware
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
 // Routes
 app.use('/', routes);
@@ -36,10 +40,6 @@ app.set('views', path.join(__dirname, '/app', '/views'));
 //Static Paths
 app.use(express.static(path.join(__dirname + '/assets')));
 
-
-// Body Parser Middleware
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
 
 // Set Static Path
 app.use(express.static(path.join(__dirname, 'app')));
