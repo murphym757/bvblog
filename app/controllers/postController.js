@@ -1,8 +1,8 @@
-'use strict';
 const mongoose = require('mongoose'),
-      Post = mongoose.model('Posts');
+      User = mongoose.model('User'),
+      Post = mongoose.model('Post');
 
-  exports.list_all_posts = (req, res) => {
+  exports.list_all_posts = (req, res, next) => {
     Post.find({}).exec((err, posts) => {
       if (err) {
         res.send(500, {error: 'Database Error'});
@@ -12,22 +12,40 @@ const mongoose = require('mongoose'),
     console.log('Blog posts have successfully loaded')
   };
 
-  exports.create_new_post = (req, res) => {
+  exports.create_new_post = (req, res, next) => {
     res.render('add');
   };
 
-  exports.submit_new_post = (req, res) => {
-    var title = req.body.title;
-    var body = req.body.body;
-    Post.remove({title: title, body: body}).exec((err) => {
-      if (err) {
-        res.send(500, {error: 'Database Error'});
-      }
-      res.render('posts');
-    });
-    console.log({title: title, body: body})
-  };
+  // POST /add
+  exports.submit_new_post = (req, res, next) => {
 
+    if (req.body.title && req.body.body) {
+
+      // create object with form input
+      const postData = {
+          title: req.body.title,
+          body: req.body.body
+      };
+
+      // use schema's 'create' method to insert document into Mongoose
+      Post.create(postData, function (error, user) {
+        if (error) {
+          return next(error);
+        } else {
+          return res.render('posts', {postData});
+          console.log({postData})
+        }
+      });
+
+        } else {
+          const err = new Error('All fields required');
+          err.status = 400;
+          res.render('error', {
+            message: err.message
+          });
+          console.log(err)
+        }
+  };
 /*
   list_all_posts: (req, res) => {
     Posts.find({}).exec(function(err, posts) {

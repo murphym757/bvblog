@@ -11,18 +11,13 @@ const express = require('express'),
       bodyParser = require('body-parser');
 
 
-// mongoose instance connection url connection
+// Mongoose instance connection url connection
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/Postsdb');
+const db = mongoose.connection;
 
-/*
-const logger = function(req, res, next){
-  console.log('Logging...');
-  next();
-}
-
-app.use(logger);
-*/
+// Mongo Error
+db.on('error', console.error.bind(console, 'connection error:'));
 
 // Body Parser Middleware
 app.use(bodyParser.json());
@@ -37,14 +32,11 @@ app.set('view engine', 'pug');
 // Paths
 app.set('views', path.join(__dirname, '/app', '/views'));
 
-//Static Paths
-app.use(express.static(path.join(__dirname + '/assets')));
-
-
 // Set Static Path
 app.use(express.static(path.join(__dirname, 'app')));
 
-
+//Static Paths
+app.use(express.static(path.join(__dirname + '/assets')));
 
 // process.env.PORT lets the port be set by Heroku
 // use port 3000 unless there exists a preconfigured port ("port" is called with the other dependencies)
@@ -52,5 +44,3 @@ app.use(express.static(path.join(__dirname, 'app')));
 app.listen(port, () => {
     console.log('Server started on port ' + port)
 });
-
-module.exports = app;

@@ -1,5 +1,4 @@
 /// ROUTES ///
-'use strict';
 const route = require('express').Router(),
       postController = require('../controllers/postController.js');
 
