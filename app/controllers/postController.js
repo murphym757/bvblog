@@ -1,5 +1,4 @@
 const mongoose = require('mongoose'),
-      User = mongoose.model('User'),
       Post = mongoose.model('Post');
 
   exports.list_all_posts = (req, res, next) => {
@@ -28,7 +27,7 @@ const mongoose = require('mongoose'),
       };
 
       // use schema's 'create' method to insert document into Mongoose
-      Post.create(postData, function (error, user) {
+      Post.create(postData, function (error, post) {
         if (error) {
           return next(error);
         } else {
@@ -46,6 +45,7 @@ const mongoose = require('mongoose'),
           console.log(err)
         }
   };
+
 /*
   list_all_posts: (req, res) => {
     Posts.find({}).exec(function(err, posts) {

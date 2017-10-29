@@ -1,0 +1,22 @@
+//- signup.pug
+extends layout
+
+block content
+  div(class="post container")
+    h2(class="lead post-title display-4 pb-4") Sign Up
+    form(method="POST" action="/userProfile")
+      div(class="form-group")
+        label(for="username") Username
+        input(type="text" name="username" placeholder="Username" class="form-control")
+      div(class="form-group pt-2 pb-3")
+        label(for="email") E-Mail
+        input(type="text" name="email" placeholder="E-Mail" class="form-control")
+      div(class="form-group pt-2 pb-3")
+        label(for="password") Password
+        input(type="text" name="password" placeholder="Password" class="form-control")
+      div(class="submit-button pb-3")
+        div(class="form-group pt-2 pb-3")
+          label(for="confirmPassword") Confirm Password
+          input(type="text" name="confirmPassword" placeholder="Confirm Password" class="form-control")
+        div(class="submit-button pb-3")
+        input(type="submit" value="Sign Up" class="btn btn-primary")

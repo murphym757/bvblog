@@ -1,6 +1,7 @@
 /// ROUTES ///
 const route = require('express').Router(),
-      postController = require('../controllers/postController.js');
+      postController = require('../controllers/postController.js'),
+      userController = require('../controllers/userController.js');
 
 
 //Route For App Landing Page (Homepage.ejs)
@@ -12,11 +13,19 @@ route.get('/', (req, res, next) => {
 //Route Showing All Posts (posts.pug)
 route.route('/posts')
     .get(postController.list_all_posts)
-    .post(postController.submit_new_post);
+    .post(postController.submit_new_post)
 
 //Route allowing the user to create a post (add.pug)
 route.route('/add')
     .get(postController.create_new_post);
+
+//Route Showing All Posts (posts.pug)
+route.route('/signup')
+    .get(userController.create_new_user);
+
+route.route('/userProfile')
+    .post(userController.submit_new_user);
+
 
 
 module.exports = route;
