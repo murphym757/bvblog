@@ -49,3 +49,13 @@ const mongoose = require('mongoose'),
       console.log(err)
     }
   };
+
+  //GET /login
+  exports.user_login = (req, res, next) => {
+    return res.render('login');
+  };
+
+  //POST /login
+  exports.user_logged_in = (req, res, next) => {
+    return res.render('posts');
+  };

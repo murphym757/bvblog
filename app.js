@@ -8,9 +8,16 @@ const express = require('express'),
       User = require('./app/models/userModel.js'),
       routes = require('./app/routes/routes.js'),
       mongoose = require('mongoose'),
+      session = require('express-session');
       port = process.env.PORT || 3000,
       bodyParser = require('body-parser');
 
+// use sessions for tracking logins
+app.use(session({
+  secret: 'Bayside Vinyl has a blog now',
+  resave: true,
+  saveUninitialized: false
+}));
 
 // Mongoose instance connection url connection
 mongoose.Promise = global.Promise;

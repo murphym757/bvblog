@@ -26,6 +26,9 @@ route.route('/signup')
 route.route('/userProfile')
     .post(userController.submit_new_user);
 
+route.route('/login')
+    .get(userController.user_login)
+    .post(userController.user_logged_in);
 
 
 module.exports = route;
