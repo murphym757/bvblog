@@ -3,20 +3,13 @@ extends layout
 
 block content
   div(class="post container")
-    h2(class="lead post-title display-4 pb-4") Sign In
-    form(method="POST" action="/userProfile")
-      div(class="form-group")
-        label(for="username") Username
-        input(type="text" name="username" placeholder="Username" class="form-control")
+    h2(class="lead post-title display-4 pb-4") Log In
+    form(method="POST" action="/login")
       div(class="form-group pt-2 pb-3")
         label(for="email") E-Mail
-        input(type="text" name="email" placeholder="E-Mail" class="form-control")
+        input.form-control(type="text" id="email" placeholder="E-Mail" name="email")
       div(class="form-group pt-2 pb-3")
         label(for="password") Password
-        input(type="text" name="password" placeholder="Password" class="form-control")
-      div(class="submit-button pb-3")
-        div(class="form-group pt-2 pb-3")
-          label(for="confirmPassword") Confirm Password
-          input(type="text" name="confirmPassword" placeholder="Confirm Password" class="form-control")
+        input.form-control(type="password" id="password" placeholder="Password" name="password")
         div(class="submit-button pb-3")
-        input(type="submit" value="Sign Up" class="btn btn-primary")
+        button.btn.btn-primary(type="submit") Log In

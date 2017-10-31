@@ -35,6 +35,7 @@ const mongoose = require('mongoose'),
     if (error) {
       return next(error);
     } else {
+      req.session.userId = user._id;
       return res.render('userProfile', {userData});
       console.log({userData})
     }
@@ -57,5 +58,31 @@ const mongoose = require('mongoose'),
 
   //POST /login
   exports.user_logged_in = (req, res, next) => {
-    return res.render('posts');
+    if (req.body.email && req.body.password) {
+      User.authenticate(req.body.email, req.body.password, function(error, user) {
+        if (error || !user) {
+          const err = new Error('Wrong email or password');
+          err.status = 401;
+          res.render('error', {
+            message: err.message
+          });
+          console.log(err)
+          return next(err);
+        } else {
+          req.session.userId = user._id;
+          return res.redirect('userProfile');
+        }
+      });
+      console.log('User successfully logged in')
+      return res.redirect('posts');
+    } else {
+      const err = new Error('Email and password are required');
+      err.status = 401;
+      res.render('error', {
+        message: err.message
+      });
+      console.log(err)
+      return next(err);
+    }
+
   };
