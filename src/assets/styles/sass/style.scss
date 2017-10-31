@@ -1,4 +1,4 @@
-//Fonts
+// Fonts
 @font-face {
   font-family: 'CaviarDreams';
   src: url('/assets/fonts/CaviarDreams_Bold.ttf');
@@ -7,7 +7,7 @@
  	font-style: normal;
 }
 
-//Bayside Vinyl Color Scheme
+// Bayside Vinyl Color Scheme
 $mintGreen     : #b8dacc;
 $milkChocolate : #6d5e4c;
 $frostyWhite   : #fdfdfd;
@@ -43,7 +43,12 @@ h1 {
   height: 100%;
 }
 
-//includes (partials)
+// form
+.form-field {
+  
+}
+
+// includes (partials)
 .header {
 
 }
@@ -52,7 +57,7 @@ h1 {
 
 }
 
-//content (what appears between header & footer)
+// content (what appears between header & footer)
 .page-content {
 
 }
@@ -79,7 +84,7 @@ h1 {
 }
 /*-----------------*/
 
-//Bootstrap Navbar
+// Bootstrap Navbar
 $bgDefault     : $milkChocolate;
 $bgHighlight   : $milkChocolate;
 $colDefault    : $mintGreen;

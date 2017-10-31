@@ -7,9 +7,9 @@ block content
     form(method="POST" action="/posts")
       div(class="form-group")
         label(for="title") Title
-        input(type="text" name="title" placeholder="Post Title" class="form-control")
+        input.form-control(type="text" class="form-field" placeholder="Post Title" name="title")
       div(class="form-group pt-2 pb-3")
         label(for="body") Body
-        textarea(name="body" placeholder="Post Body" class="form-control")
+        textarea.form-control(type="text" class="form-field" placeholder="Post Body" name="body")
       div(class="submit-button pb-3")
-        input(type="submit" value="Submit" class="btn btn-primary")
+        button.btn.btn-mintGreen(type="submit") Submit
