@@ -38,14 +38,42 @@ h1 {
 
 
 .card {
-  background-color: white;
+  background-color: $milkChocolate;
   opacity: 0.8;
   height: 100%;
 }
 
+// homepage
+.standout-font,
+.bayside-header {
+  color: $mintGreen;
+}
+
+.featurette-heading,
+.homeparagraph,
+.bayside-header-explanation,
+.bayside-header-explanation-2 {
+  color: $frostyWhite;
+}
+
 // form
 .form-field {
-  
+  border-style: solid;
+  border-color: $mintGreen;
+}
+
+.form-field:focus {
+  border-style: solid;
+  border-color: $milkChocolate;
+  background-color: $mintGreen;
+}
+
+.form-group {
+  color: $mintGreen;
+}
+
+.post-title {
+  color: $frostyWhite;
 }
 
 // includes (partials)
@@ -53,8 +81,9 @@ h1 {
 
 }
 
-.footer {
-
+.footer,
+.copyright, {
+  color: $milkChocolate;
 }
 
 // content (what appears between header & footer)
@@ -84,6 +113,53 @@ h1 {
 }
 /*-----------------*/
 
+/*Custom Bootstrap Button*/
+.btn-mintGreen {
+  color: $mintGreen;
+  background-color: $milkChocolate;
+  border-color: $mintGreen;
+}
+
+.btn-mintGreen:hover,
+.btn-mintGreen:focus,
+.btn-mintGreen:active,
+.btn-mintGreen.active,
+.open .dropdown-toggle.btn-mintGreen {
+  color: $milkChocolate;
+  background-color: $mintGreen;
+  border-color: $mintGreen;
+}
+
+.btn-mintGreen:active,
+.btn-mintGreen.active,
+.open .dropdown-toggle.btn-mintGreen {
+  background-image: none;
+}
+
+.btn-mintGreen.disabled,
+.btn-mintGreen[disabled],
+fieldset[disabled] .btn-mintGreen,
+.btn-mintGreen.disabled:hover,
+.btn-mintGreen[disabled]:hover,
+fieldset[disabled] .btn-mintGreen:hover,
+.btn-mintGreen.disabled:focus,
+.btn-mintGreen[disabled]:focus,
+fieldset[disabled] .btn-mintGreen:focus,
+.btn-mintGreen.disabled:active,
+.btn-mintGreen[disabled]:active,
+fieldset[disabled] .btn-mintGreen:active,
+.btn-mintGreen.disabled.active,
+.btn-mintGreen[disabled].active,
+fieldset[disabled] .btn-mintGreen.active {
+  background-color: $milkChocolate;
+  border-color: $mintGreen;
+}
+
+.btn-mintGreen .badge {
+  color: $milkChocolate;
+  background-color: $mintGreen;
+}
+/*-----------------*/
 // Bootstrap Navbar
 $bgDefault     : $milkChocolate;
 $bgHighlight   : $milkChocolate;
