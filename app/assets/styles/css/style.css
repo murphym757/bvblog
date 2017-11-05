@@ -30,9 +30,12 @@ h1 {
   opacity: 0.8;
   height: 100%; }
 
-.standout-font,
-.bayside-header {
+.standout-font {
   color: #b8dacc; }
+
+.bayside-header {
+  color: #b8dacc;
+  font-family: CaviarDreams; }
 
 .featurette-heading,
 .homeparagraph,
@@ -82,7 +85,8 @@ h1 {
 .btn-mintGreen {
   color: #b8dacc;
   background-color: #6d5e4c;
-  border-color: #b8dacc; }
+  border-color: #b8dacc;
+  font-family: CaviarDreams; }
 
 .btn-mintGreen:hover,
 .btn-mintGreen:focus,
