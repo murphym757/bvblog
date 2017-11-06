@@ -12,23 +12,27 @@ route.get('/', (req, res, next) => {
 
 //Route Showing All Posts (posts.pug)
 route.route('/posts')
-    .get(postController.list_all_posts)
-    .post(postController.submit_new_post)
+    .get(postController.list_all_posts);
 
 //Route allowing the user to create a post (add.pug)
 route.route('/add')
-    .get(postController.create_new_post);
+    .get(postController.create_new_post)
+    .post(postController.submit_new_post);
 
 //Route Showing All Posts (posts.pug)
 route.route('/signup')
-    .get(userController.create_new_user);
+    .get(userController.create_new_user)
+    .post(userController.submit_new_user);
 
 route.route('/userProfile')
-    .post(userController.submit_new_user);
+    .get(userController.user_profile);
 
 route.route('/login')
     .get(userController.user_login)
     .post(userController.user_logged_in);
+
+route.route('/logout')
+    .get(userController.user_logout);
 
 
 module.exports = route;

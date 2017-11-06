@@ -1,6 +1,7 @@
 const mongoose = require('mongoose'),
       User = mongoose.model('User');
 
+  // GET /signup
   exports.create_new_user = (req, res, next) => {
     res.render('signup');
   };
@@ -36,7 +37,7 @@ const mongoose = require('mongoose'),
       return next(error);
     } else {
       req.session.userId = user._id;
-      return res.render('userProfile', {userData});
+      return res.redirect('userProfile');
       console.log({userData})
     }
   });
@@ -49,6 +50,27 @@ const mongoose = require('mongoose'),
       });
       console.log(err)
     }
+  };
+
+  //GET /userprofile
+  exports.user_profile = (req, res, next) => {
+    if (! req.session.userId) {
+      const err = new Error("You are not authorized to view this page.");
+      err.status = 403;
+      res.render('error', {
+        message: err.message
+      });
+      console.log(err)
+      return next(err);
+    }
+    User.findById(req.session.userId)
+        .exec(function (error, user) {
+          if (error) {
+            return next(error);
+          } else {
+            return res.render('userProfile', { title: 'userprofile', username: user.username });
+          }
+        });
   };
 
   //GET /login
@@ -74,7 +96,6 @@ const mongoose = require('mongoose'),
         }
       });
       console.log('User successfully logged in')
-      return res.redirect('posts');
     } else {
       const err = new Error('Email and password are required');
       err.status = 401;
@@ -84,5 +105,22 @@ const mongoose = require('mongoose'),
       console.log(err)
       return next(err);
     }
+  };
 
+  //GET /logout
+  exports.user_logout = (req, res) => {
+    if (req.session) {
+      // delete session object
+      req.session.destroy(function(err) {
+        if(err) {
+          res.render('error', {
+            message: err.message
+          });
+          console.log(err)
+          return next(err);
+        } else {
+          return res.redirect('posts');
+        }
+      });
+    }
   };

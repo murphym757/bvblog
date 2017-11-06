@@ -19,6 +19,13 @@ app.use(session({
   saveUninitialized: false
 }));
 
+// Make user ID available in templates
+app.use((req, res, next) => {
+  res.locals.currentUser = req.session.userId;
+  next();
+});
+
+
 // Mongoose instance connection url connection
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/Postsdb');
