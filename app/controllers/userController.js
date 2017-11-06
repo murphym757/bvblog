@@ -1,5 +1,5 @@
 const mongoose = require('mongoose'),
-      User = mongoose.model('User');
+      User = mongoose.model('User')
 
   // GET /signup
   exports.create_new_user = (req, res, next) => {
