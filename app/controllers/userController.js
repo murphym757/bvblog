@@ -17,8 +17,8 @@ const mongoose = require('mongoose'),
   if (req.body.password !== req.body.confirmPassword) {
     const err = new Error('Passwords do not match');
     err.status = 400;
-    res.render('error', {
-      message: err.message
+    res.render('registration', {
+      message_signup: err.message
     });
     console.log(err)
     return next(err);
@@ -43,10 +43,10 @@ const mongoose = require('mongoose'),
   });
 
     } else {
-      const err = new Error('All fields required');
+      const err = new Error('(All fields required)');
       err.status = 400;
-      res.render('error', {
-        message: err.message
+      res.render('registration', {
+        message_signup: err.message
       });
       console.log(err)
     }
@@ -57,8 +57,8 @@ const mongoose = require('mongoose'),
     if (! req.session.userId) {
       const err = new Error("You are not authorized to view this page.");
       err.status = 403;
-      res.render('error', {
-        message: err.message
+      res.render('registration', {
+        message_signup: err.message
       });
       console.log(err)
       return next(err);
@@ -85,8 +85,8 @@ const mongoose = require('mongoose'),
         if (error || !user) {
           const err = new Error('Wrong email or password');
           err.status = 401;
-          res.render('error', {
-            message: err.message
+          res.render('registration', {
+            message_login: err.message
           });
           console.log(err)
           return next(err);
@@ -99,8 +99,8 @@ const mongoose = require('mongoose'),
     } else {
       const err = new Error('Email and password are required');
       err.status = 401;
-      res.render('error', {
-        message: err.message
+      res.render('registration', {
+        message_login: err.message
       });
       console.log(err)
       return next(err);
@@ -113,8 +113,8 @@ const mongoose = require('mongoose'),
       // delete session object
       req.session.destroy(function(err) {
         if(err) {
-          res.render('error', {
-            message: err.message
+          res.render('posts', {
+            message_posts: err.message
           });
           console.log(err)
           return next(err);

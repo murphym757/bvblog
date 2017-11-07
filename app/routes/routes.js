@@ -10,6 +10,10 @@ route.get('/', (req, res, next) => {
     console.log('The homepage has successfully loaded')
     res.render('index', res);
 });
+route.get('/registration', (req, res, next) => {
+    console.log('The homepage has successfully loaded')
+    res.render('registration', res);
+});
 
 //Route Showing All Posts (posts.pug)
 route.route('/posts')
@@ -18,13 +22,13 @@ route.route('/posts')
 
 //Route allowing the user to create a post (add.pug)
 route.route('/add')
+    .get(mid.requiresLogin)
     .get(postController.create_new_post);
 
 //Route Showing All Posts (posts.pug)
 route.route('/signup')
     .get(mid.loggedOut)
     .get(userController.create_new_user)
-    .post(mid.loggedOut)
     .post(userController.submit_new_user);
 
 route.route('/userProfile')
@@ -33,7 +37,6 @@ route.route('/userProfile')
 route.route('/login')
     .get(mid.loggedOut)
     .get(userController.user_login)
-    .post(mid.loggedOut)
     .post(userController.user_logged_in);
 
 route.route('/logout')

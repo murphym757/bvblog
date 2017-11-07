@@ -11,6 +11,7 @@
 $mintGreen     : #b8dacc;
 $milkChocolate : #6d5e4c;
 $frostyWhite   : #fdfdfd;
+$sandBrown     : #d3cab8;
 $fontColor     : black;
 
 img {
@@ -83,6 +84,10 @@ h1 {
 // includes (partials)
 .header {
 
+}
+
+.error_message {
+  color: $sandBrown;
 }
 
 .footer,

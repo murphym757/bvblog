@@ -58,6 +58,9 @@ h1 {
 .post-title {
   color: #fdfdfd; }
 
+.error_message {
+  color: #d3cab8; }
+
 .footer,
 .copyright {
   color: #6d5e4c; }
