@@ -8,22 +8,10 @@ const express = require('express'),
       User = require('./app/models/userModel.js'),
       routes = require('./app/routes/routes.js'),
       mongoose = require('mongoose'),
-      session = require('express-session');
+      session = require('express-session'),
+      MongoStore = require('connect-mongo')(session),
       port = process.env.PORT || 3000,
       bodyParser = require('body-parser');
-
-// use sessions for tracking logins
-app.use(session({
-  secret: 'Bayside Vinyl has a blog now',
-  resave: true,
-  saveUninitialized: false
-}));
-
-// Make user ID available in templates
-app.use((req, res, next) => {
-  res.locals.currentUser = req.session.userId;
-  next();
-});
 
 
 // Mongoose instance connection url connection
@@ -33,6 +21,22 @@ const db = mongoose.connection;
 
 // Mongo Error
 db.on('error', console.error.bind(console, 'connection error:'));
+
+// use sessions for tracking logins
+app.use(session({
+  secret: 'Bayside Vinyl has a blog now',
+  resave: true,
+  saveUninitialized: false,
+  store: new MongoStore({
+    mongooseConnection: db
+  })
+}));
+
+// Make user ID available in templates
+app.use((req, res, next) => {
+  res.locals.currentUser = req.session.userId;
+  next();
+});
 
 // Body Parser Middleware
 app.use(bodyParser.json());
