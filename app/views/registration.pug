@@ -2,35 +2,36 @@
 extends layout
 
 block content
-  div.post-container   
-    div.row
-      div.col-xs.col-md-6.col-lg-6
-        h2.lead.post-title.display-4.pb-4 Sign Up
-        p.lead.error_message.m-t-2= message_signup
-        form(method="POST" action="/signup")
-          div.form-group
-            label.username Username
-            input.form-control(type="text" class="form-field" placeholder="Username" name="username")
-          div.form-group.pt-2.pb-3
-            label.email E-Mail
-            input.form-control(type="text" class="form-field" placeholder="E-Mail" name="email")
-          ddiv.form-group.pt-2.pb-3
-            label.password Password
-            input.form-control(type="text" class="form-field" placeholder="Password" name="password")
-          div.form-group.pt-2.pb-3
-            label.confirmPassword Confirm Password
-            input.form-control(type="text" class="form-field" placeholder="Confirm Password" name="confirmPassword")
-          div.submit-button.pb-3
-            button.btn.btn-mintGreen(type="submit") Sign Up
-      div.col-xs.col-md-6.col-lg-6
-        h2.lead.post-title.display-4.pb-4 Log In
-        p.lead.error_message.m-t-2= message_login
-        form(method="POST" action="/login")
-          div.form-group
-            label.email E-Mail
-            input.form-control(type="text" class="form-field" placeholder="E-Mail" name="email")
-          div.form-group.pt-2.pb-3
-            label.password Password
-            input.form-control(type="password" class="form-field" placeholder="Password" name="password")
-          div.submit-button.pb-3
-            button.btn.btn-mintGreen(type="submit") Log In
+  div.post-container 
+    div.container  
+      div.row
+        div.col-xs.col-md-6.col-lg-6
+          h2.lead.post-title.display-4.pb-4 Sign Up
+          p.lead.error_message.m-t-2= message_signup
+          form(method="POST" action="/signup")
+            div.form-group
+              label.username Username
+              input.form-control(type="text" class="form-field" placeholder="Username" name="username")
+            div.form-group.pt-2.pb-3
+              label.email E-Mail
+              input.form-control(type="text" class="form-field" placeholder="E-Mail" name="email")
+            ddiv.form-group.pt-2.pb-3
+              label.password Password
+              input.form-control(type="text" class="form-field" placeholder="Password" name="password")
+            div.form-group.pt-2.pb-3
+              label.confirmPassword Confirm Password
+              input.form-control(type="text" class="form-field" placeholder="Confirm Password" name="confirmPassword")
+            div.submit-button.pb-3
+              button.btn.btn-mintGreen(type="submit") Sign Up
+        div.col-xs.col-md-6.col-lg-6
+          h2.lead.post-title.display-4.pb-4 Log In
+          p.lead.error_message.m-t-2= message_login
+          form(method="POST" action="/login")
+            div.form-group
+              label.email E-Mail
+              input.form-control(type="text" class="form-field" placeholder="E-Mail" name="email")
+            div.form-group.pt-2.pb-3
+              label.password Password
+              input.form-control(type="password" class="form-field" placeholder="Password" name="password")
+            div.submit-button.pb-3
+              button.btn.btn-mintGreen(type="submit") Log In
