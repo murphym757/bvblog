@@ -3,11 +3,26 @@ extends layout
 block content
   
 
-  div(class="main container")
+  div.container
     p.lead.error_message.m-t-2= message_posts
     h1(class="bayside-header display-4 pt-4") 
-  table(class="table table-striped")
-    = title
-    br
-    = body
-    hr(class="post-separator")  
+    table(class="table table-striped")
+  
+    div.container
+      h2.lead.post-title.display-4.pb-2= post_title
+      h3.lead.username.display-5.pb-1= username
+      br
+      p.post-body= post_body
+      br
+      p.lead.created_date.display-6.m-t-2= created_date
+      hr(class="post-separator")  
+      div.card-deck.pb-4
+        button.card.animated.pulse
+          img(class="featurette-image bvbloglogo img-responsive animated pulse" src="/assets/images/BV logo-2.0.svg" height="200" width="200")
+          div.card-block
+            h4.card-title Card title
+            p.lead.card-text This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+            hr.post-seperator
+          div.class-footer
+            small.card-timing.pt-3 Last updated 3 mins ago
+        br

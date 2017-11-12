@@ -2,11 +2,11 @@ const mongoose = require('mongoose'),
       Post = mongoose.model('Post');
 
   exports.list_all_posts = (req, res, next) => {
-    Post.find({}).exec((err, posts) => {
+    Post.find({}).exec((err, post) => {
       if (err) {
         res.send(500, {error: 'Database Error'});
       }
-      res.render('posts', {posts: posts});
+      res.render('posts', {post: post});
     });
     console.log('Blog posts have successfully loaded')
   };
@@ -31,7 +31,7 @@ const mongoose = require('mongoose'),
         if (error) {
           return next(error);
         } else {
-          return res.render('posts', {postData});
+          return res.render('posts', {post_title: post.title, post_body: post.body, created_date: post.Created_date});
           console.log({postData})
         }
       });
@@ -47,32 +47,6 @@ const mongoose = require('mongoose'),
   };
 
 /*
-  list_all_posts: (req, res) => {
-    Posts.find({}).exec(function(err, posts) {
-      if (err) {
-        res.send(500, {error: 'Database Error'});
-      }
-      res.view('posts', {posts: posts});
-    });
-  };
-
-  create_new_post: (req, res) => {
-    res.render('add');
-  };
-
-  submit_new_post: (req, res) => {
-    var title = req.body.title;
-    var body = req.body.body;
-
-    Posts.create({title: title, body: body}).exec(function(err) {
-      if (err) {
-        res.send(500, {error: 'Database Error'});
-      }
-      res.redirect('/posts/list');
-    });
-  };
-
-
 
   edit_post: (req, res) => {
     Posts.findOne({id: req.params.id}).exec(function(err, post) {
