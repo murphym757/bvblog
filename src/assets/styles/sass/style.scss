@@ -46,6 +46,7 @@ h1 {
 // post cards (list of posts)
 .card {
   background-color: $mintGreen;
+  position: relative;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -56,14 +57,21 @@ button{
 .card-title {
   color: $milkChocolate;
   font-family: CaviarDreams;
+  text-align: center;
 }
 
 .card-text {
   color: $milkChocolate;
+  text-align: center;
 }
 
 .card-timing {
   color: $frostyWhite;
+  text-align: center;
+}
+
+.card-block {
+  text-align: center;
 }
 
 .post-seperator {

@@ -1,21 +1,25 @@
 const mongoose = require('mongoose'),
-      Post = mongoose.model('Post');
+      Posts = mongoose.model('Post');
 
-  exports.list_all_posts = (req, res, next) => {
-    Post.find({}).exec((err, post) => {
-      if (err) {
-        res.send(500, {error: 'Database Error'});
-      }
-      res.render('posts', {post: post});
-    });
-    console.log('Blog posts have successfully loaded')
-  };
-
+  // GET /add
   exports.create_new_post = (req, res, next) => {
     res.render('add');
   };
 
-  // POST /add
+  // GET /post
+  exports.list_all_posts = (req, res, next) => {
+
+    Posts.find({}, (error, posts) => {
+          if (error) {
+            return next(error);
+          } else {
+            return res.render('posts', {posts: posts, post_title: posts.title, post_body: posts.body, post_creator: "Maurice Murphy", created_date: posts.Created_date});
+            console.log('Blog posts have successfully loaded')
+          }
+        });
+  };
+
+  // POST /post
   exports.submit_new_post = (req, res, next) => {
 
     if (req.body.title && req.body.body) {
@@ -27,11 +31,11 @@ const mongoose = require('mongoose'),
       };
 
       // use schema's 'create' method to insert document into Mongoose
-      Post.create(postData, function (error, post) {
+      Posts.create(postData, (error, posts) => {
         if (error) {
           return next(error);
         } else {
-          return res.render('posts', {post_title: post.title, post_body: post.body, created_date: post.Created_date});
+          return res.redirect('posts');
           console.log({postData})
         }
       });
@@ -49,7 +53,7 @@ const mongoose = require('mongoose'),
 /*
 
   edit_post: (req, res) => {
-    Posts.findOne({id: req.params.id}).exec(function(err, post) {
+    Post.findOne({id: req.params.id}).exec(function(err, post) {
       if (err) {
         res.send(500, {error: 'Database Error'});
       }
@@ -61,7 +65,7 @@ const mongoose = require('mongoose'),
     var title = req.body.title;
     var body = req.body.body;
 
-    Posts.update({
+    Post.update({
       id: req.params.id
     }, {
       title: title,
@@ -77,7 +81,7 @@ const mongoose = require('mongoose'),
   };
 
   show_post: (req, res) => {
-    Posts.find({id: req.params.id}).exec(function(err, posts) {
+    Post.find({id: req.params.id}).exec(function(err, posts) {
       if (err) {
         res.send(500, {error: 'Database Error'});
       }
