@@ -13,7 +13,7 @@ const mongoose = require('mongoose'),
           if (error) {
             return next(error);
           } else {
-            return res.render('posts', {posts: posts, post_title: posts.title, post_body: posts.body, post_creator: "Maurice Murphy", created_date: posts.Created_date});
+            return res.render('posts', {posts: posts});
             console.log('Blog posts have successfully loaded')
           }
         });

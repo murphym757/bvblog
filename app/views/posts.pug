@@ -1,21 +1,18 @@
 extends layout
 
 block content
-  -const fruits = {apple, lemon, lime}
-
   div.container
     p.lead.error_message.m-t-2= message_posts
     h1(class="bayside-header display-4 pt-4") 
     table(class="table table-striped")
-  
-    p #{posts}
+
     div.container
       div.row.pb-5.pt-5
-        for Posts in posts
+        each Posts in posts
           div.card-deck.pb-5.mx-auto.col-6
-            button.card.animated.pulse.pb-5.py-auto
-              h4.lead.text-capitalize.card-title #{post_title}
-              h4.card-text #{post_body}
+            button.card.animated.pulse.align-items-center.d-flex.justify-content-center.pb-5.py-auto
+              h4.lead.text-capitalize.card-title #{Posts.title}
+              h4.card-text #{Posts.body}
               p.lead.font-italic.card-text #{post_creator}
               hr.post-seperator
-              p.card-timing.pt-3 #{created_date}
+              p.card-timing.pt-3 #{Posts.Created_date.toDateString()}
