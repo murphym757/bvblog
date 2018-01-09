@@ -1,11 +1,14 @@
 extends layout
 
 block content
-  div.container
-    h2.lead.post-title.display-4.pb-2= post_title
-    h3.lead.username.display-5.pb-1= username
-    br
-    p.post-body= post_body
-    br
-    p.post-body= post_creator
-    p.lead.created_date.display-6.m-t-2= created_date
+  div.container.pb-5
+    div.card.pb-5.pt-5
+      h4.lead.text-capitalize.card-title #{title}
+      h4.card-text #{body}
+      p.lead.font-italic #{creator}
+        hr.post-seperator
+      if !currentUser
+
+      if currentUser
+        form(method="DELETE" action="/posts/" onclick="return confirm('Are you sure you want to delete this post?');")
+          button.btn.btn-mintGreen(type="submit") Delete
