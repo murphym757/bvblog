@@ -47,11 +47,11 @@ app.use('/', routes);
 // View Engine
 app.set('view engine', 'pug');
 
-// Paths
-app.set('views', path.join(__dirname, '/app', '/views'));
-
 // Set Static Path
 app.use(express.static(path.join(__dirname, 'app')));
+
+// Paths
+app.set('views', path.join(__dirname, '/app', '/views'));
 
 //Static Paths
 app.use(express.static(path.join(__dirname + '/assets')));

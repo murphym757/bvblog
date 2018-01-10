@@ -14,10 +14,10 @@ block content
             p.lead.font-italic.card-text #{Posts.creator}
             hr.post-seperator
             p.card-timing.pt-3 #{Posts.Created_date.toDateString()}
-              form(method="GET" action="/posts/" + Posts.id)
-                button.btn.btn-mintGreen(type="submit") View Post
-              form(method="POST" action="/posts/" onclick="return confirm('Are you sure you want to delete this post?');")
-                button.btn.btn-mintGreen(type="submit") Delete
+            if !currentUser
 
+            if currentUser
+              form(method="DELETE" action="/posts/" + Posts.id)
+                button.btn.btn-mintGreen(type="submit") Delete
           
     a.nav-item.nav-link(href="/show") View Posts

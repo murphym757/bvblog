@@ -19,7 +19,19 @@ const mongoose = require('mongoose'),
         });
   };
 
-  //GET /post/:id
+  // GET /post/:id
+  exports.delete_post = (req, res, next) => {
+    Posts.remove({_id: req.params.id}, (error, posts) => {
+      if (error) {
+        return next(error);
+      } else {
+        console.log('post deleted')
+        return res.redirect('/posts');
+      }
+    });
+  };
+
+  //DELETE /post/:id
   exports.find_post = (req, res, next) => {
     Posts.findById({_id: req.params.id}, (error, posts) => {
       if (error) {
@@ -30,19 +42,6 @@ const mongoose = require('mongoose'),
       }
     });
   };
-
-  // DELETE /delete
-  exports.delete_post = (req, res, next) => {
-    Posts.findByIdAndRemove({_id: req.params.id}, (error, posts) => {
-      if (error) {
-        return next(error);
-      } else {
-        console.log('deleting post', posts)
-        return res.redirect('posts');
-      }
-    });
-  };
-
 
   // POST /post
   exports.submit_new_post = (req, res, next) => {
