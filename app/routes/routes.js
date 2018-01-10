@@ -18,10 +18,9 @@ route.get('/registration', (req, res, next) => {
 //Route Showing All Posts (posts.pug)
 route.route('/posts')
     .get(postController.list_all_posts)
-    .post(postController.submit_new_post)
-    .get(postController.find_post);
+    .post(postController.submit_new_post);
 
-//Route allowing the user to a specific post (posts.pug)
+//Route allowing the user to a delete specific post (posts.pug)
 //Strange glitch required me to GET the "delete function" and DELETE the "get (or find) function"
 route.route('/posts/:id')
     .get(postController.delete_post)
