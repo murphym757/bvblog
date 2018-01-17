@@ -43,6 +43,20 @@ const mongoose = require('mongoose'),
     });
   };
 
+  //POST /update/:id
+  exports.update_post = (req, res, next) => {
+    Posts.findByIdAndUpdate({_id: req.params.id}, {new: true, runValidators: true, overwrite: true}, (error, posts) => {
+      if (error) {
+        return next(error);
+      } else {
+        Posts.remove({_id: req.params.id}, (error, posts) => {
+        });
+        console.log('Blog post has been updated')
+        return res.render('update', {title: posts.title, body: posts.body, creator: posts.creator, id: posts.id});
+      }
+    });
+  };
+
   // POST /post
   exports.submit_new_post = (req, res, next) => {
 

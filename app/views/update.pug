@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  -let titleValue = title
+
+  div(class="post container")
+    h2(class="lead post-title display-4 pb-4") Update Post
+    form(method="POST" action="/posts")
+      div(class="form-group")
+        label(for="title") Title
+        input.form-control(type="text" class="form-field" placeholder="Post Title" name="title" value=titleValue) 
+      div(class="form-group pt-2 pb-3")
+        label(for="body") Body
+        textarea.form-control(type="text" class="form-field" placeholder="Post Body" name="body") #{body}
+      div(class="submit-button pb-3")
+        button.btn.btn-mintGreen(type="submit") Update

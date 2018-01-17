@@ -10,6 +10,7 @@ const express = require('express'),
       session = require('express-session'),
       MongoStore = require('connect-mongo')(session),
       port = process.env.PORT || 3000,
+      methodOverride = require('method-override'),
       bodyParser = require('body-parser');
 
 
@@ -40,6 +41,9 @@ app.use((req, res, next) => {
 // Body Parser Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+
+// Method Override (for updating data)
+app.use(methodOverride('_method'));
 
 // Routes
 app.use('/', routes);
