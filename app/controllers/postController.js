@@ -16,7 +16,7 @@ const mongoose = require('mongoose'),
             console.log('Blog posts have successfully loaded')
             return res.render('posts', {posts: posts});
           }
-        });
+        }).sort({Created_date: 'descending'});
   };
 
   // GET /post/:id
