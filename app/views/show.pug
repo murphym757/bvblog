@@ -14,7 +14,10 @@ block content
           button.btn.btn-mintGreen(type="submit") View Posts
           
       if currentUser
-        form(method="POST" action="/update/" + id + "?_method=put")
-          button.btn.btn-mintGreen(type="submit") Edit
-        form(method="GET" action="/delete/" + id onclick="return confirm('Are you sure you want to delete this post?');")
-          button.btn.btn-mintGreen(type="submit") Delete
+      div.row.mx-auto
+        li.button-icon
+          form(method="POST" action="/update/" + id + "?_method=put")
+            button.btn.btn-mintGreen(type="submit") Edit
+        li.button-icon2
+          form(method="GET" action="/delete/" + id onclick="return confirm('Are you sure you want to delete this post?');")
+            button.btn.btn-mintGreen(type="submit") Delete

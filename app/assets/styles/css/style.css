@@ -35,6 +35,12 @@ h1 {
   position: relative;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
 
+.button-icon {
+  display: inline-block; }
+
+.button-icon2 {
+  display: inline-block; }
+
 button {
   outline: none !important; }
 
