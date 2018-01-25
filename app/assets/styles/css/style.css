@@ -25,6 +25,11 @@ body {
 h1 {
   color: black; }
 
+.bayside-header {
+  text-shadow: 0px 15px 5px rgba(0, 0, 0, 0.1), 10px 20px 5px rgba(0, 0, 0, 0.05), -10px 20px 5px rgba(0, 0, 0, 0.05);
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: #fdfdfd; }
+
 .homepage-card {
   background-color: #6d5e4c;
   opacity: 0.8;
@@ -95,7 +100,8 @@ button {
 .post-body {
   color: #b8dacc; }
 
-.username {
+.username,
+.form-text {
   color: #fdfdfd; }
 
 .post-title {
@@ -265,3 +271,17 @@ fieldset[disabled] .btn-mintGreen.active {
 .navbar-expend .navbar-nav .show .dropdown-menu .dropdown-item.active {
   color: #fdfdfd;
   background-color: #6d5e4c; }
+
+/*-------------------*/
+.card {
+  background-color: #b8dacc;
+  border: 1.5px solid #fdfdfd; }
+
+.char1 {
+  color: red; }
+
+.char2 {
+  color: green; }
+
+.char3 {
+  color: blue; }

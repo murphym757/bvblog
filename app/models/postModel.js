@@ -18,7 +18,8 @@ const UserSchema = new mongoose.Schema({
       password: {
         type: String,
         required: true
-      }
+      },
+      post: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Post' }]
 });
 // Authenticate input against database documents
 UserSchema.statics.authenticate  =  function(email, password, callback) {

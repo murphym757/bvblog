@@ -37,6 +37,13 @@ h1 {
   color: $fontColor;
 }
 
+.bayside-header {
+  text-shadow: 0px 15px 5px rgba(0,0,0,0.1),
+               10px 20px 5px rgba(0,0,0,0.05),
+               -10px 20px 5px rgba(0,0,0,0.05);
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: $frostyWhite;
+}
 
 .homepage-card {
   background-color: $milkChocolate;
@@ -125,7 +132,8 @@ button{
   color: $mintGreen;
 }
 
-.username {
+.username,
+.form-text {
   color: $frostyWhite;
 }
 
@@ -325,3 +333,21 @@ $dropDown      : true;
   .dropdown-item.active {
     color: $colHighlight;
     background-color: $bgHighlight; }}
+
+/*-------------------*/
+// Vinyl Record Styling
+
+.card {
+  background-color: $mintGreen;
+  border: 1.5px solid $frostyWhite;
+}
+
+.char1 {
+  color: red;
+}
+.char2 {
+  color: green;
+}
+.char3 {
+  color: blue;
+}

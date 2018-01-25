@@ -1,23 +1,25 @@
 extends layout
 
 block content
+    
   div.container
     p.lead.error_message.m-t-2= message_posts
     h1(class="bayside-header display-4 pt-4") 
+    h1 #{username}
     table(class="table table-striped")
     div.row.pb-2.pt-5
       each Posts in posts
-        div.card-deck.pb-5.mx-auto.col-6
+        div.card-deck.pb-5.mx-auto.col-12
           div.card.animated.pulse.align-items-center.d-flex.justify-content-center.pb-5.py-auto(href="/posts")
-            h4.lead.text-capitalize.card-title.pt-3 #{Posts.title}
+            h4.lead.text-capitalize.card-title.pt-5 #{Posts.title}
             h4.lead.card-text #{Posts.body}
             p.lead.font-italic.card-text #{Posts.creator}
             hr.post-seperator
             p.card-timing.pt-3 #{Posts.Created_date.toDateString()}
+            div(iframe width="560" height="315" src="https://www.youtube.com/embed/XkMJzXnaSeQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen)
             if !currentUser
 
             if currentUser
-              form(method="GET" action="/posts/" + Posts.id)
-                button.btn.btn-mintGreen(type="submit") View
-          
-    a.nav-item.nav-link(href="/show") View Posts
+            form(method="GET" action="/posts/" + Posts.id)
+              button.btn.btn-mintGreen(type="submit")
+                i(class="fas fa-wrench")
