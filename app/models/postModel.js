@@ -69,7 +69,6 @@ const PostSchema = new mongoose.Schema({
       },
       soundcloud: {
         type: String,
-        required: true,
         trim: true
       },
       Created_date: {
