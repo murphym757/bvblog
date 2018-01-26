@@ -9,10 +9,6 @@ block content
       h4.lead.card-text #{body}
       p.lead.font-italic #{creator}
         hr.post-seperator
-      iframe(width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src=soundcloud)
-      if !currentUser
-        form(method="GET" action="/posts/")
-          button.btn.btn-mintGreen(type="submit") View Posts
           
       if currentUser
       div.row.mx-auto
