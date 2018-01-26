@@ -17,7 +17,7 @@ block content
             hr.post-seperator
             p.card-timing.pt-3 #{Posts.Created_date.toDateString()}
             if !currentUser && Posts.soundcloud
-              iframe(width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src=Posts.soundcloud).pb-5
+              iframe(width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src=Posts.soundcloud)
               
             if !currentUser && !Posts.soundcloud
 
