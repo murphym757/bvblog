@@ -38,7 +38,7 @@ const mongoose = require('mongoose'),
         return next(error);
       } else {
         console.log('Blog post has successfully loaded')
-        return res.render('show', {title: posts.title, body: posts.body, creator: posts.creator, id: posts.id});
+        return res.render('show', {title: posts.title, body: posts.body, creator: posts.creator, id: posts.id, soundcloud: posts.soundcloud});
       }
     });
   };
@@ -52,7 +52,7 @@ const mongoose = require('mongoose'),
         Posts.remove({_id: req.params.id}, (error, posts) => {
         });
         console.log('Blog post has been updated')
-        return res.render('update', {title: posts.title, body: posts.body, creator: posts.creator, id: posts.id});
+        return res.render('update', {title: posts.title, body: posts.body, creator: posts.creator, id: posts.id, soundcloud: posts.soundcloud});
       }
     });
   };
@@ -65,7 +65,8 @@ const mongoose = require('mongoose'),
       // create object with form input
       const postData = {
           title: req.body.title,
-          body: req.body.body
+          body: req.body.body,
+          soundcloud: req.body.soundcloud
       };
 
       // use schema's 'create' method to insert document into Mongoose
@@ -77,7 +78,6 @@ const mongoose = require('mongoose'),
         }
       });
         } else {
-          Posts.populate('username')
           const err = new Error('All fields required');
           err.status = 400;
           res.render('error', {

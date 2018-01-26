@@ -16,7 +16,7 @@ block content
             p.lead.font-italic.card-text #{Posts.creator}
             hr.post-seperator
             p.card-timing.pt-3 #{Posts.Created_date.toDateString()}
-            div(iframe width="560" height="315" src="https://www.youtube.com/embed/XkMJzXnaSeQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen)
+            iframe(width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src=Posts.soundcloud)
             if !currentUser
 
             if currentUser
