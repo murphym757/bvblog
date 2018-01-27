@@ -16,7 +16,8 @@ const express = require('express'),
 
 // Mongoose instance connection url connection
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/Postsdb');
+mongoose.connect('mongodb://BV Users:MmjIrm90@ds231205.mlab.com:31205/heroku_484npq0h');
+//mongoose.connect('mongodb://localhost/Postsdb');
 const db = mongoose.connection;
 
 // Mongo Error
