@@ -28,7 +28,9 @@ h1 {
 .bayside-header {
   text-shadow: 0px 15px 5px rgba(0, 0, 0, 0.1), 10px 20px 5px rgba(0, 0, 0, 0.05), -10px 20px 5px rgba(0, 0, 0, 0.05);
   -webkit-text-stroke-width: 1.5px;
-  -webkit-text-stroke-color: #fdfdfd; }
+  -webkit-text-stroke-color: #fdfdfd;
+  -moz-text-stroke-width: 1.5px;
+  -moz-text-stroke-color: #fdfdfd; }
 
 .homepage-card {
   background-color: #6d5e4c;
@@ -106,7 +108,11 @@ button {
 
 .post-title {
   color: #fdfdfd;
-  font-family: CaviarDreams; }
+  font-family: CaviarDreams;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #b8dacc;
+  -moz-text-stroke-width: 2px;
+  -moz-text-stroke-color: #b8dacc; }
 
 .error_message,
 .created_date {

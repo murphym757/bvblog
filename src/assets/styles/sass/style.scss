@@ -43,6 +43,8 @@ h1 {
                -10px 20px 5px rgba(0,0,0,0.05);
   -webkit-text-stroke-width: 1.5px;
   -webkit-text-stroke-color: $frostyWhite;
+  -moz-text-stroke-width: 1.5px;
+  -moz-text-stroke-color: $frostyWhite;
 }
 
 .homepage-card {
@@ -140,6 +142,10 @@ button{
 .post-title {
   color: $frostyWhite;
   font-family: CaviarDreams;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: $mintGreen;
+  -moz-text-stroke-width: 2px;
+  -moz-text-stroke-color: $mintGreen;
 }
 
 // includes (partials)
