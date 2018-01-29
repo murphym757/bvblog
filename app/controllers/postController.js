@@ -25,7 +25,6 @@ const mongoose = require('mongoose'),
       if (error) {
         return next(error);
       } else {
-        console.log('post deleted')
         return res.redirect('/posts');
       }
     });
@@ -37,8 +36,8 @@ const mongoose = require('mongoose'),
       if (error) {
         return next(error);
       } else {
-        console.log('Blog post has successfully loaded')
-        return res.render('show', {title: posts.title, body: posts.body, creator: posts.creator, id: posts.id, soundcloud: posts.soundcloud});
+        console.log('Blog post', {id: posts.id}, 'has successfully deleted')
+        return res.render('show', {title: posts.title, body: posts.body, id: posts.id, soundcloud: posts.soundcloud});
       }
     });
   };
@@ -51,8 +50,8 @@ const mongoose = require('mongoose'),
       } else {
         Posts.remove({_id: req.params.id}, (error, posts) => {
         });
-        console.log('Blog post has been updated')
-        return res.render('update', {title: posts.title, body: posts.body, creator: posts.creator, id: posts.id, soundcloud: posts.soundcloud});
+        console.log('Blog post has successfully updated', {title: posts.title, body: posts.body, id: posts.id, soundcloud: posts.soundcloud})
+        return res.render('update', {title: posts.title, body: posts.body, id: posts.id, soundcloud: posts.soundcloud});
       }
     });
   };
