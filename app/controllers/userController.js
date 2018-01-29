@@ -92,7 +92,7 @@ const mongoose = require('mongoose'),
           return next(err);
         } else {
           req.session.userId = user._id;
-          return res.redirect('userProfile');
+          return res.redirect('posts');
         }
       });
       console.log('User successfully logged in')
