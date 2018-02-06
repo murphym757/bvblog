@@ -39,6 +39,7 @@ h1 {
 
 .card {
   background-color: #b8dacc;
+  border: 1.5px solid #fdfdfd;
   position: relative;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
 
@@ -137,6 +138,7 @@ button {
 .bvcollection:hover,
 .bvthemegenerator:hover,
 .bvofficial:hover,
+.bvfooterimg:hover,
 .card-title:hover {
   -moz-animation-duration: 1s;
   -moz-animation-delay: 0.5s;
@@ -277,17 +279,3 @@ fieldset[disabled] .btn-mintGreen.active {
 .navbar-expend .navbar-nav .show .dropdown-menu .dropdown-item.active {
   color: #fdfdfd;
   background-color: #6d5e4c; }
-
-/*-------------------*/
-.card {
-  background-color: #b8dacc;
-  border: 1.5px solid #fdfdfd; }
-
-.char1 {
-  color: red; }
-
-.char2 {
-  color: green; }
-
-.char3 {
-  color: blue; }
