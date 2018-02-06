@@ -77,10 +77,10 @@ const mongoose = require('mongoose'),
         }
       });
         } else {
-          const err = new Error('All fields required');
+          const err = new Error('(Title and Body fields required)');
           err.status = 400;
-          res.render('error', {
-            message: err.message
+          res.render('add', {
+            message_add: err.message
           });
           console.log(err)
         }

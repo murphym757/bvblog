@@ -3,6 +3,7 @@ extends layout
 
 block content
   div(class="post container")
+    p.lead.error_message.m-t-2= message_add
     h2(class="lead post-title display-4 pb-4") Add Post
     form(method="POST" action="/posts")
       div(class="form-group")
